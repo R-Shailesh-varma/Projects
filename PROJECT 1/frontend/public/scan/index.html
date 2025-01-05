@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.A.I.A</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">   
+        <div class="left-panel">
+            <h1>Plant Disease Detection</h1>
+            <div class="upload-container">
+                <div class="file-input-wrapper">
+                    <!-- The accept attribute ensures that only image files are allowed -->
+                    <input type="file" id="imageInput" name="image" accept="image/*">
+                </div>
+                <button type="button" id="uploadButton">Upload and Predict</button>
+            </div>
+            <div class="preview-section">
+                <h2>Image Preview</h2>
+                <div class="image-preview-container">
+                    <img id="imagePreview" src="#" alt="Preview" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <h2>Results</h2>
+            <div id="status"></div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+
+    <div class="instructions">
+        <h1>INSTRUCTIONS: </h1>
+        <li>Please upload valid plant image.</li>
+        <li>Input of other images will result in inappropriate results.</li>
+    </div>
+
+    <!-- Import Gradio Client -->
+    <script type="module">
+        import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/+esm'
+        window.gradioClient = client;
+    </script> 
+
+    <!-- Your Custom JS for Handling Image Upload and Prediction -->
+    <script src="script.js"></script>
+</body>
+</html>
